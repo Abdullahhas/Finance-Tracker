@@ -1,0 +1,369 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+}
+
+.navbar nav ul li a {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #ffc107;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('/images/hero.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 160px 20px;
+}
+
+.hero-section .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #28a745;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #218838;
+}
+
+.secondary {
+    background-color: #ffc107;
+    /* Warm Yellow for Login */
+    margin-left: 15px;
+}
+
+.secondary:hover {
+    background-color: #e0a800;
+}
+
+/* Features Section */
+.features-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.features-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+
+.feature-card img {
+    width: 200px;
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Testimonial */
+
+.testimonial-section {
+    text-align: center;
+    color: #1b5fc5;
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.testimonial-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+}
+
+.testimonial-item {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-image {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 2rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    background-color: #edf2f7;
+}
+
+.testimonial-text {
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+.testimonial-line {
+    display: inline-block;
+    height: 0.25rem;
+    width: 2.5rem;
+    background-color: #5a67d8;
+    margin: 1.5rem 0;
+}
+
+.testimonial-name {
+    font-size: 0.875rem;
+    color: #1a202c;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-position {
+    color: #a0aec0;
+    font-size: 0.875rem;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    .testimonial-item {
+        width: 33.3333%;
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Call to Action Section */
+.cta-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Login Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 50px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+}
+
+/* General styles for links as buttons */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Sign Up button style */
+  .button-signup {
+    background-color: #28a745; /* Green */
+  }
+  
+  .button-signup:hover {
+    background-color: #1e7e34; /* Darker green on hover */
+    transform: scale(1.05);
+  }
+  
+  /* Login button style */
+  .button-login {
+    background-color: #17a2b8; /* Teal */
+  }
+  
+  .button-login:hover {
+    background-color: #138496; /* Darker teal on hover */
+    transform: scale(1.05);
+  }
+  

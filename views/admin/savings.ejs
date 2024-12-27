@@ -1,0 +1,64 @@
+<!-- Navbar -->
+<header class="navbar">
+  <div class="logo">Finance Tracker</div>
+  <nav>
+    <ul>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/reports">Reports</a></li>
+      <li><a href="/transactions">Transactions</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Savings Goals Section -->
+<section id="savings" class="savings-section">
+  <h2>Savings Goals</h2>
+
+  <!-- Create Savings Goal Form -->
+  <div class="savings-form">
+    <h3>Create a New Savings Goal</h3>
+    <form action="/savingGoals" method="POST">
+      <label for="goal-name">Goal Name</label>
+      <input type="text" id="goal-name" name="goal_name" required placeholder="e.g., Vacation Fund">
+
+      <label for="target-amount">Target Amount</label>
+      <input type="number" id="target-amount" name="target_amount" required placeholder="Enter target amount">
+
+      <label for="current-amount">Current Amount</label>
+      <input type="number" id="current-amount" name="current_amount" required placeholder="Enter current savings" value="">
+
+      <label for="end-date">End Date</label>
+      <input type="date" id="end-date" name="end_date" required>
+
+      <button type="submit" class="cta-button">Create Goal</button>
+    </form>
+  </div>
+
+  <!-- Active Savings Goals -->
+  <h3>Your Savings Goals</h3>
+
+  <!-- Displaying sample goal cards dynamically, assuming data is passed from backend -->
+  <% savingsGoals.forEach(goal => { %>
+    <div class="goal-card">
+      <h4><%= goal.goal_name %></h4>
+      <p>Target: $<%= goal.target_amount %> | Current: $<%= goal.current_amount %></p>
+      <progress value="<%= goal.current_amount %>" max="<%= goal.target_amount %>"></progress>
+      <p>End Date: <%= goal.end_date.toLocaleDateString() %></p>
+
+      <!-- Edit Button -->
+      <a href="/savingGoals/edit/<%= goal._id %>" class="btn btn-primary btn-sm">Edit</a>
+
+      <!-- Delete Button -->
+      <a href="/savingGoals/<%= goal._id %>/delete" class="btn btn-danger btn-sm">Delete</a>
+
+    </div>
+  <% }) %>
+
+  
+</div>
+
+</section>
+
+<footer>
+  <p>&copy; 2024 Finance Tracker. All rights reserved.</p>
+</footer>

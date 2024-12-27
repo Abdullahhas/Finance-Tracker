@@ -1,0 +1,80 @@
+
+  <header class="navbar">
+    <div class="logo">Finance Tracker</div>
+    <nav>
+      <ul>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/savingGoals">Savings Goals</a></li>
+        <li><a href="/reports">Reports</a></li>
+        <li><a href="/transactions">Transactions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="transactions" class="transactions-section">
+    <h2>Transaction Management</h2>
+    <div class="transaction-form">
+      <h3>Add New Transaction</h3>
+      <form action="/transactions" method="POST">
+        <label for="type">Transaction Type</label>
+        <select id="type" name="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      
+        <label for="category">Category</label>
+        <select id="category" name="category">
+          <option value="food">Food</option>
+          <option value="transport">Transport</option>
+          <option value="entertainment">Entertainment</option>
+        </select>
+      
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" required placeholder="Enter amount">
+      
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" placeholder="Enter a description">
+      
+        <button type="submit" class="cta-button">Add Transaction</button>
+      </form>
+      
+    </div>
+
+    <h3>Recent Transactions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% transactions.forEach(transaction => { %>
+          <tr>
+            <td><%= transaction.date ? new Date(transaction.date).toLocaleDateString("en-US") : "N/A" %></td>
+
+ 
+            <td><%= transaction.category %></td>
+            <td>$<%= transaction.amount %></td>
+            <td><%= transaction.type %></td>
+            <td><%= transaction.description %></td>
+            <td>
+              <a href="/transactions/<%= transaction._id %>/edit" class="btn btn-primary">Edit</a>
+              <a href="/transactions/<%= transaction._id %>/delete" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+      
+    </table>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Finance Tracker. All rights reserved.</p>
+  </footer>
+
+  <script src="/js/transaction.js"></script>

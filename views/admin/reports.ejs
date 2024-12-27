@@ -1,0 +1,135 @@
+
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Finance Tracker</div>
+    <nav>
+      <ul>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/savingGoals">Savings Goals</a></li>
+        <li><a href="/reports">Reports</a></li>
+        <li><a href="/transactions">Transactions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Reports & Insights Section -->
+  <section id="reports" class="reports-section">
+    <h2>Reports & Insights</h2>
+
+    <!-- Reports Section (Charts) -->
+    <div class="reports-container">
+      <div class="chart">
+        <h3>Expense Distribution</h3>
+        <canvas id="expense-chart"></canvas>
+      </div>
+
+      <div class="chart">
+        <h3>Savings Progress</h3>
+        <canvas id="savings-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- Insights Section -->
+    <div class="insights">
+      <h3>Financial Insights</h3>
+      <ul>
+        <li><i class="fas fa-arrow-down"></i>Your spending on entertainment has decreased by 15% this month!</li>
+        <li><i class="fas fa-check-circle"></i>You are on track to meet your savings goal for this quarter.</li>
+        <li><i class="fas fa-lightbulb"></i>Try to reduce dining expenses to boost savings.</li>
+      </ul>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2024 Finance Tracker. All rights reserved.</p>
+  </footer>
+  <!-- Link to Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- <script src="/js/report.js"></script> -->
+  <div id="expense-data" data-expenses='<%- JSON.stringify(expensesByCategory) %>'></div>
+  <div id="savings-data" data-savings='<%- JSON.stringify(savingsProgress) %>'></div>
+
+  
+  <script>
+    // Expense Distribution Chart (Already implemented)
+    try {
+      const rawData = document.getElementById('expense-data').getAttribute('data-expenses');
+      const expenseData = JSON.parse(rawData || '{}');
+      const expenseLabels = Object.keys(expenseData);
+      const expenseValues = Object.values(expenseData);
+  
+      const expenseChart = new Chart(document.getElementById('expense-chart'), {
+        type: 'pie',
+        data: {
+          labels: expenseLabels,
+          datasets: [{
+            data: expenseValues,
+            backgroundColor: ['#FF5733', '#FFBD33', '#33FF57', '#3377FF'],
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'top' },
+            tooltip: {
+              callbacks: {
+                label: (tooltipItem) => `$${tooltipItem.raw.toFixed(2)}`,
+              }
+            }
+          }
+        }
+      });
+    } catch (error) {
+      console.error("Error parsing expense data:", error);
+    }
+  
+    // Savings Line Chart
+    try {
+      const savingsRawData = document.getElementById('savings-data').getAttribute('data-savings');
+      const savingsProgress = JSON.parse(savingsRawData || '[]'); // Fallback to empty array
+  
+      console.log("Savings Data:", savingsProgress); // Debug data
+  
+      // Prepare data for the chart
+      const savingsLabels = savingsProgress.map(goal => goal.goalName); // Goal names
+      const savingsValues = savingsProgress.map(goal => goal.current); // Current savings
+  
+      const savingsChartCtx = document.getElementById('savings-chart').getContext('2d');
+      const savingsChart = new Chart(savingsChartCtx, {
+        type: 'line',
+        data: {
+          labels: savingsLabels,
+          datasets: [{
+            label: 'Savings Progress',
+            data: savingsValues,
+            borderColor: '#28a745',
+            backgroundColor: 'rgba(40, 167, 69, 0.2)',
+            fill: true,
+            tension: 0.4 // Smooth line
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Amount Saved ($)'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Savings Goals'
+              }
+            }
+          }
+        }
+      });
+    } catch (error) {
+      console.error("Error parsing savings data or initializing chart:", error);
+    }
+  </script>
+  
+

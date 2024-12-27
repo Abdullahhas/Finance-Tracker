@@ -1,0 +1,116 @@
+/* Basic Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Auth Section */
+.auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+  padding: 20px;
+  
+}
+
+.auth-container {
+  background-color: #ffffff;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-header .logo {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.auth-header h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.auth-header p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.auth-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.auth-form label {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.auth-form label i {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button.cta-button {
+  background-color: #007bff;
+  padding: 12px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+button.cta-button:hover {
+  background-color: #0056b3;
+}
+
+.auth-footer p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+.auth-footer a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .auth-container {
+      width: 90%;
+  }
+}

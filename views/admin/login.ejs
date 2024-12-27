@@ -1,0 +1,44 @@
+<header class="navbar">
+  <div class="logo">Finance Tracker</div>
+  <nav>
+    <ul>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/savingGoals">Savings Goals</a></li>
+      <li><a href="/reports">Reports</a></li>
+      <li><a href="/transactions">Transactions</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Login Section -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-header">
+        
+        <h2>Welcome Back!</h2>
+        <p>Log in to manage your finances effortlessly.</p>
+      </div>
+
+      <form action="/login" method="POST" class="auth-form">
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email">
+        </div>
+
+        <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" name="password" required placeholder="Enter your password">
+        </div>
+
+        <button type="submit" class="cta-button">Login</button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+        <a href="/forgot-password">Forgot password?</a>
+
+      </div>
+    </div>
+  </section>
+
+
