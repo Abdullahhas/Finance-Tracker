@@ -1,12 +1,14 @@
 const express = require("express")
 const User = require("../models/users");
 const router = express.Router()
+const bcrypt = require("bcrypt");
+
 
 router.get("/login" , (req , res)=> {
     res.render("admin/login" , { layout: "layouts/panel"  , user : []})
 })
 
-const bcrypt = require("bcrypt");
+
 
 
 router.post("/login", async (req, res) => {
@@ -19,7 +21,7 @@ router.post("/login", async (req, res) => {
     if (!user) {
       return res.render("admin/login", {
         layout: "layouts/panel",
-        user: { message: "Invalid username or password" },
+        user: { message: "Invalid username or password " },
       });
     }
 

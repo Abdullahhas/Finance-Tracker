@@ -114,3 +114,9 @@ button.cta-button:hover {
       width: 90%;
   }
 }
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
